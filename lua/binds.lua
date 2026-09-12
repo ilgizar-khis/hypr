@@ -1,3 +1,19 @@
+local function Super(...)
+	return table.concat({ "SUPER", ... }, " + ")
+end
+
+local function Alt(...)
+	return table.concat({ "ALT", ... }, " + ")
+end
+
+local function Ctrl(...)
+	return table.concat({ "CTRL", ... }, " + ")
+end
+
+local function Shift(...)
+	return table.concat({ "SHIFT", ... }, " + ")
+end
+
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 local terminal = "kitty"
 local fileManager = "thunar"
