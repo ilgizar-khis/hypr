@@ -42,13 +42,13 @@ hl.bind(Super("down"), hl.dsp.focus({ direction = "down" }))
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
 for i = 1, 10 do
 	local key = i % 10 -- 10 maps to key 0
-	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+	hl.bind(Super(key), hl.dsp.focus({ workspace = i }))
+	hl.bind(Super(Shift(key)), hl.dsp.window.move({ workspace = i }))
 end
 
 -- Example special workspace (scratchpad)
 hl.bind(Super("S"), hl.dsp.workspace.toggle_special("magic"))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
+hl.bind(Super(Shift("S")), hl.dsp.window.move({ workspace = "special:magic" }))
 
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(Super("mouse_down"), hl.dsp.focus({ workspace = "e+1" }))
