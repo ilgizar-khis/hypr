@@ -36,6 +36,7 @@ local ARROWS = { left = "h", right = "l", up = "k", down = "j" }
 
 for direction, key in pairs(ARROWS) do
 	hl.bind(Super(key), hl.dsp.focus({ direction = direction }), { desc = "move focus to " .. direction .. " window" })
+	hl.bind(Super(Shift(key)), hl.dsp.window.move({ direction = direction }), { desc = "move window to " .. direction .. " direction" })
 end
 
 for i = 1, 10 do
