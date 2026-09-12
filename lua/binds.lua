@@ -18,39 +18,40 @@ local terminal = "kitty"
 local fileManager = "thunar"
 local menu = "rofi -show drun"
 
-hl.bind(Super("Return"), hl.dsp.exec_cmd(terminal))
+hl.bind(Super("Return"), hl.dsp.exec_cmd(terminal), { desc = "Launch terminal" })
 
-hl.bind(Super("C"), hl.dsp.window.close())
+hl.bind(Super("C"), hl.dsp.window.close(), { desc = "Close window" })
 
 hl.bind(
 	Super("M"),
-	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
+	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"),
+	{ desc = "exit hyprland" }
 )
-hl.bind(Super("E"), hl.dsp.exec_cmd(fileManager))
-hl.bind(Super("V"), hl.dsp.window.float({ action = "toggle" }))
-hl.bind(Super("D"), hl.dsp.exec_cmd(menu))
-hl.bind(Super("P"), hl.dsp.window.pseudo())
+hl.bind(Super("E"), hl.dsp.exec_cmd(fileManager), { desc = "Launch file manager" })
+hl.bind(Super("V"), hl.dsp.window.float({ action = "toggle" }), { desc = "Toggle floating of window" })
+hl.bind(Super("D"), hl.dsp.exec_cmd(menu), { desc = "Launch menu" })
+hl.bind(Super("P"), hl.dsp.window.pseudo(), { desc = "toggle pseudotiling of window" })
 hl.bind(Super("J"), hl.dsp.layout("togglesplit")) -- dwindle only
 
-hl.bind(Super("left"), hl.dsp.focus({ direction = "left" }))
+hl.bind(Super("left"), hl.dsp.focus({ direction = "left" }), {})
 hl.bind(Super("right"), hl.dsp.focus({ direction = "right" }))
 hl.bind(Super("up"), hl.dsp.focus({ direction = "up" }))
 hl.bind(Super("down"), hl.dsp.focus({ direction = "down" }))
 
 for i = 1, 10 do
 	local key = i % 10 -- 10 maps to key 0
-	hl.bind(Super(key), hl.dsp.focus({ workspace = i }))
-	hl.bind(Super(Shift(key)), hl.dsp.window.move({ workspace = i }))
+	hl.bind(Super(key), hl.dsp.focus({ workspace = i }), { desc = "move focus to WS" .. i })
+	hl.bind(Super(Shift(key)), hl.dsp.window.move({ workspace = i }), { desc = "move window to WS" .. i })
 end
 
-hl.bind(Super("S"), hl.dsp.workspace.toggle_special("magic"))
-hl.bind(Super(Shift("S")), hl.dsp.window.move({ workspace = "special:magic" }))
+hl.bind(Super("S"), hl.dsp.workspace.toggle_special("magic"), { desc = "move focus to ws:magic" })
+hl.bind(Super(Shift("S")), hl.dsp.window.move({ workspace = "special:magic" }), { desc = "move window to ws:magic" })
 
 hl.bind(Super("mouse_down"), hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(Super("mouse_up"), hl.dsp.focus({ workspace = "e-1" }))
 
-hl.bind(Super("mouse:272"), hl.dsp.window.drag(), { mouse = true })
-hl.bind(Super("mouse:273"), hl.dsp.window.resize(), { mouse = true })
+hl.bind(Super("mouse:272"), hl.dsp.window.drag(), { mouse = true, desc = "move window (mouse)" })
+hl.bind(Super("mouse:273"), hl.dsp.window.resize(), { mouse = true, desc = "resize window (mouse)" })
 
 hl.bind(
 	"XF86AudioRaiseVolume",
