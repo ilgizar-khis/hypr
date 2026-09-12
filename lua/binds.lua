@@ -55,8 +55,8 @@ hl.bind(Super("mouse_down"), hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(Super("mouse_up"), hl.dsp.focus({ workspace = "e-1" }))
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
-hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
-hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+hl.bind(Super("mouse:272"), hl.dsp.window.drag(), { mouse = true })
+hl.bind(Super("mouse:273"), hl.dsp.window.resize(), { mouse = true })
 
 -- Laptop multimedia keys for volume and LCD brightness
 hl.bind(
