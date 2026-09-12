@@ -35,7 +35,7 @@ hl.bind(Super("P"), hl.dsp.window.pseudo(), { desc = "toggle pseudotiling of win
 local ARROWS = { left = "h", right = "l", up = "k", down = "j" }
 
 for direction, key in pairs(ARROWS) do
-	hl.bind(Super(key), hl.dsp.focus({ direction = direction }), {})
+	hl.bind(Super(key), hl.dsp.focus({ direction = direction }), { desc = "move focus to " .. direction .. " window" })
 end
 
 for i = 1, 10 do
