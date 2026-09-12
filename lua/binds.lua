@@ -31,7 +31,6 @@ hl.bind(Super("E"), hl.dsp.exec_cmd(fileManager), { desc = "Launch file manager"
 hl.bind(Super("V"), hl.dsp.window.float({ action = "toggle" }), { desc = "Toggle floating of window" })
 hl.bind(Super("D"), hl.dsp.exec_cmd(menu), { desc = "Launch menu" })
 hl.bind(Super("P"), hl.dsp.window.pseudo(), { desc = "toggle pseudotiling of window" })
-hl.bind(Super("J"), hl.dsp.layout("togglesplit")) -- dwindle only
 
 local ARROWS = { left = "h", right = "l", up = "k", down = "j" }
 
