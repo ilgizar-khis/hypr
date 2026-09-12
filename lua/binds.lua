@@ -33,10 +33,11 @@ hl.bind(Super("D"), hl.dsp.exec_cmd(menu), { desc = "Launch menu" })
 hl.bind(Super("P"), hl.dsp.window.pseudo(), { desc = "toggle pseudotiling of window" })
 hl.bind(Super("J"), hl.dsp.layout("togglesplit")) -- dwindle only
 
-hl.bind(Super("left"), hl.dsp.focus({ direction = "left" }), {})
-hl.bind(Super("right"), hl.dsp.focus({ direction = "right" }))
-hl.bind(Super("up"), hl.dsp.focus({ direction = "up" }))
-hl.bind(Super("down"), hl.dsp.focus({ direction = "down" }))
+local ARROWS = { left = "h", right = "l", up = "k", down = "j" }
+
+for direction, key in pairs(ARROWS) do
+	hl.bind(Super(key), hl.dsp.focus({ direction = direction }), {})
+end
 
 for i = 1, 10 do
 	local key = i % 10 -- 10 maps to key 0
