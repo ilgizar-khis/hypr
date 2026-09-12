@@ -20,7 +20,7 @@ local menu = "rofi -show drun"
 
 hl.bind(Super("Return"), hl.dsp.exec_cmd(terminal), { desc = "Launch terminal" })
 
-hl.bind(Super("C"), hl.dsp.window.close(), { desc = "Close window" })
+hl.bind(Super(Shift("q")), hl.dsp.window.close(), { desc = "Close window" })
 
 hl.bind(
 	Super("M"),
