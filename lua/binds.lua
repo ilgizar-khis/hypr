@@ -1,17 +1,17 @@
-local function Super(...)
-	return table.concat({ "SUPER", ... }, " + ")
+local function Super(key)
+	return "SUPER + " .. key
 end
 
-local function Alt(...)
-	return table.concat({ "ALT", ... }, " + ")
+local function Alt(key)
+	return "ALT + " .. key
 end
 
-local function Ctrl(...)
-	return table.concat({ "CTRL", ... }, " + ")
+local function Ctrl(key)
+	return "CTRL + " .. key
 end
 
-local function Shift(...)
-	return table.concat({ "SHIFT", ... }, " + ")
+local function Shift(key)
+	return "SHIFT + " .. key
 end
 
 local terminal = "kitty"
