@@ -21,10 +21,10 @@ if [[ "$#" == 1 ]]; then
 
 	grim -g "$geometry" "$dir/$file"
 
-	result="$(notify-send "$file" -i "$dir/$file" -t 2000 -a "Screenshot" -A "default=default")"
+	result="$(notify-send "$file" -i "$dir/$file"  -a "Screenshot" -A "default=default")"
 
 	while [[ "$result" == "default" ]]; do
 		satty --filename "$dir/$file" --output-filename "$dir/$file"
-		result="$(notify-send "$file" -i "$dir/$file" -t 2000 -a "Screenshot" -A "default=default")"
+		result="$(notify-send "$file" -i "$dir/$file"  -a "Screenshot" -A "default=default")"
 	done
 fi
