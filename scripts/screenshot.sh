@@ -3,7 +3,7 @@
 if [[ "$#" == 1 ]]; then
 	geometry=""
 	dir="$(xdg-user-dir PICTURES)/Screenshots"
-	file="$(date +'%d_%B_%Y_%H_%M_%S').png"
+	file="$(date +'%d_%b_%Y_%H_%M_%S').png"
 	if [ ! -d "$dir" ]; then
 		mkdir -p "$dir"
 	fi
