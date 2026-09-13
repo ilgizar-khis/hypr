@@ -12,7 +12,8 @@ if [[ "$#" == 1 ]]; then
 		geometry="$(slurp)"
 	elif [[ "$1" == "client" ]]; then
 		bs1="$(hyprctl repl 'hl.get_config("general.border_size")')"
-		bs2=$((bs * 2))
+		bs2=$((bs1 * 2))
+		echo "$bs1 and $bs2"
 		geometry="$(hyprctl activewindow -j | jq -r '"\(.at.[0] - '$bs1'),\(.at.[1] - '$bs1') \(.size.[0] + '$bs2')x\(.size.[1] + '$bs2')"')"
 	else
 		geometry="$(slurp -o)"
