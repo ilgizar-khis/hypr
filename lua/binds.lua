@@ -1,3 +1,6 @@
+local hypr = "$HOME/.config/hypr/"
+local scrpits = "$HOME/.config/hypr/scripts/"
+
 local function Super(key)
 	return "SUPER + " .. key
 end
@@ -36,7 +39,11 @@ local ARROWS = { left = "h", right = "l", up = "k", down = "j" }
 
 for direction, key in pairs(ARROWS) do
 	hl.bind(Super(key), hl.dsp.focus({ direction = direction }), { desc = "move focus to " .. direction .. " window" })
-	hl.bind(Super(Shift(key)), hl.dsp.window.move({ direction = direction }), { desc = "move window to " .. direction .. " direction" })
+	hl.bind(
+		Super(Shift(key)),
+		hl.dsp.window.move({ direction = direction }),
+		{ desc = "move window to " .. direction .. " direction" }
+	)
 end
 
 for i = 1, 10 do
@@ -77,3 +84,8 @@ local fn = {
 for key, cmd in pairs(fn) do
 	hl.bind(key, hl.dsp.exec_cmd(cmd), { locked = true })
 end
+
+local screenshot = scrpits .. "/screenshot.sh"
+hl.bind(Super("Print"), hl.dsp.exec_cmd(screenshot .. " output"))
+hl.bind(Alt("Print"), hl.dsp.exec_cmd(screenshot .. " client"))
+hl.bind(Ctrl("Print"), hl.dsp.exec_cmd(screenshot .. " region"))
