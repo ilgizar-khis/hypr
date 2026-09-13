@@ -56,3 +56,9 @@ hl.window_rule({
 --     border_size = 0,
 --     rounding    = 0,
 -- })
+
+for i = 1, 9 do
+	hl.workspace_rule({ workspace = tostring(i), monitor = "HDMI-A-1" })
+end
+
+hl.workspace_rule({ workspace = "10", monitor = "eDP-1" })
