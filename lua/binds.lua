@@ -89,3 +89,5 @@ local screenshot = scrpits .. "/screenshot.sh"
 hl.bind(Super("Print"), hl.dsp.exec_cmd(screenshot .. " output"))
 hl.bind(Alt("Print"), hl.dsp.exec_cmd(screenshot .. " client"))
 hl.bind(Ctrl("Print"), hl.dsp.exec_cmd(screenshot .. " region"))
+
+hl.bind("Print", hl.dsp.exec_cmd("$HOME/.config/rofi/screenshots.sh"))
