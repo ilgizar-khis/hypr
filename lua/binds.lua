@@ -37,13 +37,19 @@ hl.bind(Super("P"), hl.dsp.window.pseudo(), { desc = "toggle pseudotiling of win
 
 local ARROWS = { left = "h", right = "l", up = "k", down = "j" }
 
-for direction, key in pairs(ARROWS) do
-	hl.bind(Super(key), hl.dsp.focus({ direction = direction }), { desc = "move focus to " .. direction .. " window" })
-	hl.bind(
-		Super(Shift(key)),
-		hl.dsp.window.move({ direction = direction }),
-		{ desc = "move window to " .. direction .. " direction" }
-	)
+local function swap(dir)
+	if dir == "left" then
+		return hl.dsp.layout("swapcol l")
+	elseif dir == "right" then
+		return hl.dsp.layout("swapcol r")
+	else
+		return hl.dsp.window.swap({ direction = dir })
+	end
+end
+
+for dir, key in pairs(ARROWS) do
+	hl.bind(Super(key), hl.dsp.focus({ direction = dir }), { desc = "focus " .. dir .. " window" })
+	hl.bind(Super(Shift(key)), swap(dir), { desc = "swap with " .. dir .. " window" })
 end
 
 for i = 1, 10 do
