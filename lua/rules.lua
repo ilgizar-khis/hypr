@@ -34,6 +34,12 @@ hl.window_rule({
 	float = true,
 })
 
+hl.layer_rule({
+	name = "rofi-blur",
+	match = { namespace = "rofi" },
+	blur = true,
+})
+
 for i = 1, 9 do
 	hl.workspace_rule({ workspace = tostring(i), monitor = "HDMI-A-1" })
 end
