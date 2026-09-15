@@ -52,6 +52,17 @@ for dir, key in pairs(ARROWS) do
 	hl.bind(Super(Shift(key)), swap(dir), { desc = "swap with " .. dir .. " window" })
 end
 
+hl.bind(
+	Super("equal"),
+	hl.dsp.window.resize({ x = 10, y = 0, relative = true }),
+	{ desc = "resize window (10, 0)", repeating = true }
+)
+hl.bind(
+	Super("minus"),
+	hl.dsp.window.resize({ x = -10, y = 0, relative = true }),
+	{ desc = "resize window (-10, 0)", repeating = true }
+)
+
 for i = 1, 10 do
 	local key = i % 10 -- 10 maps to key 0
 	hl.bind(Super(key), hl.dsp.focus({ workspace = i }), { desc = "move focus to WS" .. i })
