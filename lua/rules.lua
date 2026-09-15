@@ -1,4 +1,10 @@
 hl.window_rule({
+	name = "nwg-look",
+	match = { class = "nwg-look" },
+	float = true,
+})
+
+hl.window_rule({
 	-- Ignore maximize requests from all apps. You'll probably like this.
 	name = "suppress-maximize-events",
 	match = { class = ".*" },
