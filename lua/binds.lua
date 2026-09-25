@@ -70,7 +70,15 @@ for i = 1, 10 do
 end
 
 hl.bind(Super("S"), hl.dsp.workspace.toggle_special("magic"), { desc = "move focus to ws:magic" })
-hl.bind(Super(Shift("S")), hl.dsp.window.move({ workspace = "special:magic" }), { desc = "move window to ws:magic" })
+hl.bind(Super(Shift("S")), function()
+	local w = hl.get_active_window()
+	local ws = hl.get_active_workspace()
+	if w and ws and w.workspace.name == "special:magic" then
+		hl.dispatch(hl.dsp.window.move({ workspace = ws }))
+	else
+		hl.dispatch(hl.dsp.window.move({ workspace = "special:magic" }))
+	end
+end, { desc = "move window to ws:magic" })
 
 hl.bind(Super("mouse_down"), hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(Super("mouse_up"), hl.dsp.focus({ workspace = "e-1" }))

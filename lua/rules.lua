@@ -5,6 +5,14 @@ hl.window_rule({
 })
 
 hl.window_rule({
+	name = "special-workspace",
+	match = {
+		workspace = "special:magic",
+	},
+	border_color = "#ffaa00",
+})
+
+hl.window_rule({
 	-- Ignore maximize requests from all apps. You'll probably like this.
 	name = "suppress-maximize-events",
 	match = { class = ".*" },
